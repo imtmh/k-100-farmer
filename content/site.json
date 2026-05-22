@@ -1,0 +1,100 @@
+{
+  "project": {
+    "name": "Project K-100",
+    "title": "100 Farmers - 100 Innovative Agriculture Activities",
+    "department": "Department of Agriculture",
+    "division": "Kosgi Division",
+    "district": "Narayanpet District",
+    "contactPerson": "B. Rama Krishna, ADA Kosgi Division",
+    "phone": ["8977751564", "9951156453"],
+    "email": "maokosgi24@gmail.com"
+  },
+  "hero": {
+    "eyebrow": "Department of Agriculture · Kosgi Division · Narayanpet District",
+    "title": "100 Farmers - 100 Innovative Agriculture Activities",
+    "body": "A flagship initiative to transform Kosgi Division into a model hub of innovative, sustainable, and income-oriented agriculture. Each selected farmer adopts one unique activity, creating live demonstration models across agriculture, horticulture, floriculture, livestock and fisheries, natural farming, and agri-business.",
+    "primaryAction": "Explore 100 activities",
+    "secondaryAction": "Learn about the programme",
+    "image": "assets/hero-field.png",
+    "imageAlt": "Illustrated field rows representing Project K-100 demonstration farms"
+  },
+  "stats": [
+    { "value": "100", "label": "Selected farmers, one innovation each" },
+    { "value": "6", "label": "Core programme areas from crops to value addition" },
+    { "value": "30-100%", "label": "Expected income increase potential" },
+    { "value": "1000+", "label": "Farmers expected to be inspired indirectly" }
+  ],
+  "about": {
+    "tag": "About the programme",
+    "title": "Income-oriented agriculture with visible field models",
+    "body": "The programme aligns with government priorities for doubling farmers' income, reducing cultivation cost, and promoting each farmer as an agri-entrepreneur.",
+    "cards": [
+      {
+        "title": "Vision alignment",
+        "body": "Project K-100 promotes high-value crops, crop diversification, integrated farming systems, stronger market linkages, value addition, efficient input use, and natural farming practices."
+      },
+      {
+        "title": "Kosgi focus",
+        "body": "Kosgi Mandal is positioned as a strategic innovation zone where selected farmers can become visible model farmers with strong earning potential and replication value."
+      },
+      {
+        "title": "Farmer as entrepreneur",
+        "body": "The programme recognizes the farmer as an investor, skilled professional, job creator, and producer contributing to food security."
+      },
+      {
+        "title": "Telugu vision",
+        "body": "The programme carries the local aspiration: \"100 మంది రైతులను లక్షాధికారులుగా తీర్చిదిద్దడం\" - transforming 100 farmers into lakh-earning model farmers."
+      }
+    ]
+  },
+  "implementation": [
+    {
+      "step": "1",
+      "title": "Selection",
+      "body": "Select 100 farmers, one per activity, with village-wise distribution to improve coverage and demonstration value."
+    },
+    {
+      "step": "2",
+      "title": "Training",
+      "body": "Use support from the department, KVKs, and universities for direct farmer-oriented practical demonstrations."
+    },
+    {
+      "step": "3",
+      "title": "Execution",
+      "body": "Support field implementation through input support, NGO/CSR/individual partnerships, and line-department convergence."
+    },
+    {
+      "step": "4",
+      "title": "Monitoring",
+      "body": "Track progress regularly and document success stories so the models become practical learning centres."
+    }
+  ],
+  "departments": [
+    { "sector": "Agriculture", "department": "Agriculture Department" },
+    { "sector": "Horticulture", "department": "Horticulture Department" },
+    { "sector": "Livestock", "department": "Veterinary Department" },
+    { "sector": "Fisheries", "department": "Fisheries Department" },
+    { "sector": "Value Addition", "department": "DRDA / NGOs" },
+    { "sector": "Marketing", "department": "Marketing Department / FPO" }
+  ],
+  "outcomes": [
+    {
+      "title": "Direct outputs",
+      "body": "100 demonstration models, stronger farmer visibility, diversified farming, and practical examples of income-oriented agriculture."
+    },
+    {
+      "title": "Economic outcomes",
+      "body": "30-100% income increase potential, employment generation, and stronger market-facing agricultural activity."
+    },
+    {
+      "title": "Long-term transformation",
+      "body": "100 success stories, inspiration for 1000+ farmers, and a stronger rural innovation cluster for Kosgi."
+    }
+  ],
+  "mela": {
+    "title": "Mega Kisan Mela",
+    "body": "The programme culminates in a public showcase bringing together all models, demonstrations, and recognition activities under one roof.",
+    "items": ["100 stalls, each representing one innovation", "Live demonstrations", "Buyer-seller meet", "Awards and recognition"]
+  },
+  "footerQuote": "Great projects always begin with criticism, challenges, and resistance, but true progress is achieved through patience, consistency, and dedication."
+}

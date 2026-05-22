@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project K-100 | Kosgi Division</title>
+  <meta name="description" content="Project K-100: 100 Farmers - 100 Innovative Agriculture Activities by the Department of Agriculture, Kosgi Division." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Project K-100 home">
+        <span class="brand-mark" aria-hidden="true">K</span>
+        <span>
+          <strong>Project K-100</strong>
+          <small>Kosgi Division</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <nav class="nav-links" id="site-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#activities">Activities</a>
+        <a href="#implementation">Implementation</a>
+        <a href="#departments">Departments</a>
+        <a href="#impact">Impact</a>
+        <a href="#updates">Updates</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero section-band" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-site="hero.eyebrow">Department of Agriculture · Kosgi Division · Narayanpet District</p>
+          <h1 data-site="hero.title">100 Farmers - 100 Innovative Agriculture Activities</h1>
+          <p class="lead" data-site="hero.body">A flagship initiative to transform Kosgi Division into a model hub of innovative, sustainable, and income-oriented agriculture.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#activities">Explore activities</a>
+            <a class="button button-secondary" href="#about">Programme overview</a>
+          </div>
+        </div>
+        <figure class="hero-media">
+          <img data-site-image="hero" src="assets/hero-field.png" alt="Illustrated field rows representing Project K-100 demonstration farms" />
+          <figcaption>
+            <span>Live demonstration model</span>
+            <strong>One farmer. One innovation. One learning centre.</strong>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="container stats-grid" id="stats" aria-label="Programme statistics"></div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <p class="tag" data-site="about.tag">About the programme</p>
+          <div>
+            <h2 data-site="about.title">Income-oriented agriculture with visible field models</h2>
+            <p data-site="about.body">The programme aligns with government priorities for doubling farmers' income, reducing cultivation cost, and promoting each farmer as an agri-entrepreneur.</p>
+          </div>
+        </div>
+        <div class="card-grid card-grid-4" id="about-cards"></div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="activities">
+      <div class="container">
+        <div class="section-head">
+          <p class="tag">100 innovative activities</p>
+          <div>
+            <h2>Filterable activity directory</h2>
+            <p>Browse the complete list from the source document. The cards are rendered from <code>content/activities.json</code> so the directory can later move into a CMS.</p>
+          </div>
+        </div>
+
+        <div class="directory-toolbar" aria-label="Activity filters">
+          <label class="search-field">
+            <span class="sr-only">Search activities</span>
+            <input id="activity-search" type="search" placeholder="Search crops, models, linkages..." autocomplete="off" />
+          </label>
+          <div class="select-wrap">
+            <label for="category-filter">Category</label>
+            <select id="category-filter"></select>
+          </div>
+          <button class="button button-quiet" id="reset-filters" type="button">Reset</button>
+        </div>
+
+        <div class="directory-meta" aria-live="polite">
+          <strong id="activity-count">100 activities</strong>
+          <span id="active-filter">All categories</span>
+        </div>
+
+        <div class="activity-grid" id="activity-grid"></div>
+        <p class="empty-state" id="activity-empty" hidden>No activities match those filters.</p>
+      </div>
+    </section>
+
+    <section class="section" id="implementation">
+      <div class="container split-layout">
+        <div>
+          <p class="tag">Implementation plan</p>
+          <h2>Selection, training, execution, monitoring</h2>
+          <p>The implementation model is built around one farmer per activity, practical training support, field-level execution, and regular monitoring.</p>
+        </div>
+        <div class="timeline" id="implementation-list"></div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="departments">
+      <div class="container">
+        <div class="section-head">
+          <p class="tag">Department convergence</p>
+          <div>
+            <h2>Multi-department support framework</h2>
+            <p>Each model activity can be supported by the most relevant department or institutional partner.</p>
+          </div>
+        </div>
+        <div class="card-grid card-grid-3" id="department-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="impact">
+      <div class="container">
+        <div class="section-head">
+          <p class="tag">Expected outcomes</p>
+          <div>
+            <h2>Designed for direct and indirect transformation</h2>
+            <p>The initiative is intended to create measurable field impact while building wider confidence in diversified and innovation-led agriculture.</p>
+          </div>
+        </div>
+        <div class="card-grid card-grid-3" id="outcome-grid"></div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="updates">
+      <div class="container">
+        <div class="section-head">
+          <p class="tag">News & gallery</p>
+          <div>
+            <h2>Ready for ongoing publishing</h2>
+            <p>Reserved slots for field activities, farmer stories, training sessions, event updates, and photo galleries.</p>
+          </div>
+        </div>
+        <div class="updates-grid">
+          <div class="card-grid" id="updates-grid"></div>
+          <div class="media-stack" id="media-stack"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="mela">
+      <div class="container mela-panel">
+        <div>
+          <p class="tag">Final activity</p>
+          <h2 data-site="mela.title">Mega Kisan Mela</h2>
+          <p data-site="mela.body">The programme culminates in a public showcase bringing together all models, demonstrations, and recognition activities under one roof.</p>
+        </div>
+        <ul class="check-list" id="mela-list"></ul>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <p class="tag">Contact</p>
+          <h2>Official project contact</h2>
+          <p>For programme details, partner outreach, or future updates, use the official contact details from the source document.</p>
+        </div>
+        <address class="contact-card">
+          <strong data-site="project.contactPerson">B. Rama Krishna, ADA Kosgi Division</strong>
+          <span data-site="project.department">Department of Agriculture</span>
+          <span data-site="project.division">Kosgi Division</span>
+          <a id="phone-link" href="tel:8977751564">8977751564, 9951156453</a>
+          <a id="email-link" href="mailto:maokosgi24@gmail.com">maokosgi24@gmail.com</a>
+        </address>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p><strong>Project K-100</strong> · Department of Agriculture, Kosgi Division</p>
+      <p data-site="footerQuote">Great projects always begin with criticism, challenges, and resistance, but true progress is achieved through patience, consistency, and dedication.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "news": [
+    {
+      "title": "Programme announcements",
+      "type": "News",
+      "status": "Reserved",
+      "body": "Milestones, official announcements, training reports, and seasonal updates can be published here."
+    },
+    {
+      "title": "Field gallery",
+      "type": "Gallery",
+      "status": "Reserved",
+      "body": "Field photographs, village activity snapshots, event albums, and documentation images can be connected to this slot."
+    },
+    {
+      "title": "Success stories",
+      "type": "Story",
+      "status": "Reserved",
+      "body": "Profiles of participating farmers, innovations adopted, and visible results can be added as the programme progresses."
+    }
+  ],
+  "media": [
+    {
+      "title": "Training and demonstrations",
+      "image": "assets/training-session.png",
+      "alt": "Illustrated training board and crop rows for Project K-100 updates"
+    },
+    {
+      "title": "Mega Kisan Mela showcase",
+      "image": "assets/kisan-mela.png",
+      "alt": "Illustrated agricultural showcase placeholder for the Mega Kisan Mela"
+    }
+  ]
+}
