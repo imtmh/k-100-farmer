@@ -99,6 +99,7 @@ function renderUpdates(updates) {
 
 function setupFilters() {
   const select = byId("category-filter");
+  const toolbar = document.querySelector(".directory-toolbar");
   const categories = ["All", ...new Set(state.activities.map((item) => item.category))].sort((a, b) => {
     if (a === "All") return -1;
     if (b === "All") return 1;
@@ -111,6 +112,8 @@ function setupFilters() {
     option.textContent = category;
     return option;
   }));
+
+  toolbar.addEventListener("submit", (event) => event.preventDefault());
 
   byId("activity-search").addEventListener("input", (event) => {
     state.query = event.target.value.trim().toLowerCase();
@@ -168,6 +171,7 @@ function setupNavigation() {
     const isOpen = nav.classList.toggle("is-open");
     document.body.classList.toggle("nav-open", isOpen);
     toggle.setAttribute("aria-expanded", String(isOpen));
+    toggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
   });
 
   nav.addEventListener("click", (event) => {
@@ -175,6 +179,17 @@ function setupNavigation() {
       nav.classList.remove("is-open");
       document.body.classList.remove("nav-open");
       toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Open navigation menu");
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && nav.classList.contains("is-open")) {
+      nav.classList.remove("is-open");
+      document.body.classList.remove("nav-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Open navigation menu");
+      toggle.focus();
     }
   });
 }
