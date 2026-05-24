@@ -3,7 +3,9 @@ const state = {
   updates: null,
   activities: [],
   category: "All",
-  query: ""
+  query: "",
+  visibleActivities: 12,
+  activityBatchSize: 12
 };
 
 const byId = (id) => document.getElementById(id);
@@ -117,19 +119,27 @@ function setupFilters() {
 
   byId("activity-search").addEventListener("input", (event) => {
     state.query = event.target.value.trim().toLowerCase();
+    state.visibleActivities = state.activityBatchSize;
     renderActivities();
   });
 
   select.addEventListener("change", (event) => {
     state.category = event.target.value;
+    state.visibleActivities = state.activityBatchSize;
     renderActivities();
   });
 
   byId("reset-filters").addEventListener("click", () => {
     state.query = "";
     state.category = "All";
+    state.visibleActivities = state.activityBatchSize;
     byId("activity-search").value = "";
     select.value = "All";
+    renderActivities();
+  });
+
+  byId("load-more-activities").addEventListener("click", () => {
+    state.visibleActivities += state.activityBatchSize;
     renderActivities();
   });
 }
@@ -137,11 +147,13 @@ function setupFilters() {
 function renderActivities() {
   const grid = byId("activity-grid");
   const empty = byId("activity-empty");
-  const visible = state.activities.filter((item) => {
+  const loadMore = byId("load-more-activities");
+  const matched = state.activities.filter((item) => {
     const matchesCategory = state.category === "All" || item.category === state.category;
     const haystack = `${item.title} ${item.category} ${item.notes}`.toLowerCase();
     return matchesCategory && haystack.includes(state.query);
   });
+  const visible = matched.slice(0, state.visibleActivities);
 
   grid.replaceChildren(...visible.map((item) => {
     const article = document.createElement("article");
@@ -159,9 +171,12 @@ function renderActivities() {
     return article;
   }));
 
-  byId("activity-count").textContent = `${visible.length} ${visible.length === 1 ? "activity" : "activities"}`;
+  byId("activity-count").textContent = `Showing ${visible.length} of ${matched.length} ${matched.length === 1 ? "activity" : "activities"}`;
   byId("active-filter").textContent = state.category === "All" ? "All categories" : state.category;
-  empty.hidden = visible.length !== 0;
+  empty.hidden = matched.length !== 0;
+  loadMore.hidden = visible.length >= matched.length;
+  const remaining = Math.max(matched.length - visible.length, 0);
+  loadMore.textContent = `Show ${Math.min(state.activityBatchSize, remaining)} more`;
 
   if (document.body.classList.contains("motion-ready")) {
     grid.querySelectorAll(".activity-card").forEach((node, index) => {

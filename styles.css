@@ -700,6 +700,30 @@ h3 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
+  max-height: 760px;
+  overflow: auto;
+  padding-right: 4px;
+  scroll-padding-block: 18px;
+}
+
+.activity-grid::-webkit-scrollbar {
+  width: 10px;
+}
+
+.activity-grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+}
+
+.activity-grid::-webkit-scrollbar-thumb {
+  background: rgba(15, 122, 59, 0.28);
+  border-radius: 999px;
+}
+
+.directory-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .activity-card {
