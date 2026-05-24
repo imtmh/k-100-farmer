@@ -162,6 +162,76 @@ function renderActivities() {
   byId("activity-count").textContent = `${visible.length} ${visible.length === 1 ? "activity" : "activities"}`;
   byId("active-filter").textContent = state.category === "All" ? "All categories" : state.category;
   empty.hidden = visible.length !== 0;
+
+  if (document.body.classList.contains("motion-ready")) {
+    grid.querySelectorAll(".activity-card").forEach((node, index) => {
+      node.classList.add("activity-enter");
+      node.style.setProperty("--reveal-delay", `${Math.min(index, 8) * 35}ms`);
+    });
+  }
+}
+
+function setupMotion() {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.body.classList.add("motion-ready");
+
+  const revealTargets = [
+    ".section-head",
+    ".stat-card",
+    ".info-card",
+    ".activity-card",
+    ".timeline-item",
+    ".media-card",
+    ".mela-panel",
+    ".contact-card"
+  ];
+
+  document.querySelectorAll(revealTargets.join(",")).forEach((node, index) => {
+    node.classList.add("reveal");
+    node.style.setProperty("--reveal-delay", `${Math.min(index % 8, 6) * 55}ms`);
+    if (reduceMotion) node.classList.add("is-visible");
+  });
+
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16, rootMargin: "0px 0px -8% 0px" });
+
+    document.querySelectorAll(".reveal").forEach((node) => observer.observe(node));
+  } else {
+    document.querySelectorAll(".reveal").forEach((node) => node.classList.add("is-visible"));
+  }
+
+  animateStats(reduceMotion);
+}
+
+function animateStats(reduceMotion) {
+  document.querySelectorAll(".stat-card strong").forEach((node) => {
+    const finalText = node.textContent;
+    const match = finalText.match(/^(\d+)(.*)$/);
+    if (!match || reduceMotion) return;
+
+    const target = Number(match[1]);
+    const suffix = match[2] || "";
+    const duration = 950;
+    const start = performance.now();
+
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      node.textContent = `${Math.round(target * eased)}${suffix}`;
+      if (progress < 1) requestAnimationFrame(tick);
+      else node.textContent = finalText;
+    }
+
+    node.textContent = `0${suffix}`;
+    requestAnimationFrame(tick);
+  });
 }
 
 function setupNavigation() {
@@ -210,6 +280,7 @@ async function init() {
     renderUpdates(updates);
     setupFilters();
     renderActivities();
+    setupMotion();
   } catch (error) {
     console.error(error);
     byId("activity-empty").hidden = false;
